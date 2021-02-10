@@ -61,11 +61,11 @@ print(oddelovac)
 # vyber textu
 print("Vyber jeden ze tri textu.")
 vyber = int(input("Vyber cislo 1 az 3:"))
-   if vyber == 1 or vyber == 2 or vyber == 3:
-        print("Vybrany text c.:", vyber)
-    else:
-        print ("Ukonceno, chybne cislo!")
-        quit()
+if vyber == 1 or vyber == 2 or vyber == 3:
+    print("Vybrany text c.:", vyber)
+else:
+    print ("Ukonceno, chybne cislo!")
+    quit()
 
 vybrany = TEXTS[vyber -1]
 print("Vybrany text c.:", vyber)
