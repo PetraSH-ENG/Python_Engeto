@@ -67,20 +67,11 @@ else:
     print ("Ukonceno, chybne cislo!")
     quit()
 
-vybrany = TEXTS[vyber -1]
-print("Vybrany text c.:", vyber)
 print(oddelovac)
 
 # cisteni textu
-slova = vybrany.split()
-jen_slova = []
-
-while slova:
-    slovo = slova.pop()
-    slovo = slovo.strip('.,')
-    if slovo: jen_slova.append(slovo)
-pocet_slov = len(jen_slova)
-
+vybrany = TEXTS[vyber -1]
+jen_slova = [slova.strip('.,') for slova in vybrany.split()]
 
 # pocitadlo
 velke_prvni = 0
@@ -90,25 +81,22 @@ cisla = 0
 pocet = {}
 soucet = 0
 
-a = 0
-while a < len(jen_slova):
-    if jen_slova[a].istitle():
+for slovo in jen_slova:
+    if slovo.istitle():
         velke_prvni = velke_prvni + 1
 
-    elif jen_slova[a].isupper():
+    elif slovo.isupper():
         velka_pismena = velka_pismena + 1
 
-    elif jen_slova[a].islower():
+    elif slovo.islower():
         mala_pismena = mala_pismena + 1
 
-    elif jen_slova[a].isnumeric():
+    elif slovo.isnumeric():
         cisla = cisla + 1
-        soucet = soucet + int(jen_slova[a])
+        soucet = soucet + int(slovo)
 
-    p = len(jen_slova[a])
+    p = len(slovo)
     pocet[p] = pocet.get(p, 0) + 1
-
-    a = a + 1
 
 pocet_slov = len(jen_slova)
 print("V textu c.", vyber, "je", pocet_slov, "slov celkem.")
